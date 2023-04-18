@@ -4,8 +4,8 @@ import router from "../routing/routing"
 
 class Lib {
 
-    static clubComponents(parent: string,components: (Element | null)[],attributes?: IComponentProps){
-        const root = document.createElement(parent)
+    static clubComponents(components: (Element | null)[],attributes?: IComponentProps,parent?: string){
+        const root = document.createElement(parent || 'div')
         if(attributes){
             Object.entries(attributes).forEach(i => {
                 root.setAttribute(i[0],i[1])
@@ -30,7 +30,7 @@ class Lib {
 
         let appRoot = router.currentRoot;
         if(!appRoot) return 
-        const root = Lib.clubComponents('div',[appRoot()])
+        const root = Lib.clubComponents([appRoot()])
         const element = document.querySelector<HTMLDivElement>('#app')
         element!.innerHTML = root.innerHTML
         this.registerEventListeners()
