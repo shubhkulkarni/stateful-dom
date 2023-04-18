@@ -1,6 +1,6 @@
 {
   "name": "stateful-dom",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A stateful reactive library for vanilla js/ts applications using component patterns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
