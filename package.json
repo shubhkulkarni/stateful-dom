@@ -1,0 +1,30 @@
+{
+  "name": "stateful-dom",
+  "version": "1.0.1",
+  "description": "A stateful reactive library for vanilla applications using component patterns",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhkulkarni/stateful-dom.git"
+  },
+  "keywords": [
+    "stateful"
+  ],
+  "author": "Shubham Kulkarni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhkulkarni/stateful-dom/issues"
+  },
+  "homepage": "https://github.com/shubhkulkarni/stateful-dom#readme",
+  "devDependencies": {
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  }
+}
