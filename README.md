@@ -1,6 +1,7 @@
 # Stateful DOM
 ## Introduction
-A tiny stateful & reactive DOM wrapper library to build vanilla JavaScript or TypeScript front-end applications using modern component based patterns 
+A tiny stateful & reactive DOM wrapper library to build vanilla JavaScript or TypeScript front-end applications using modern component based patterns.
+Try in [CodeSandbox](https://codesandbox.io/p/sandbox/frosty-glitter-6fzugw)
 ## Installation
 ```npm
 npm i stateful-dom
@@ -204,3 +205,6 @@ console.log(_.state.user)
 |state| Not a method| used to access the state
 |setState()|key:  string,  value:  any | used to update state|
 |new useState()|initialState?:  {[key:  string]:  any},logger?:  string| 'logger' is a string name to log state object to console|
+##Known issues
+ -When **any** state is updated, the entire UI of current route is re-rendered. This is bit performance heavy.
+ -Each time the dom is re-rendered , we need to add all the registered event listeners again :( 
