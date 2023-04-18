@@ -16,6 +16,13 @@ class Router {
         if (!this.routing.length) {
             if (!(routes instanceof Array)) routes = [{ path: "/", root: routes }]
             this.routing = routes
+            const element = document.querySelector<HTMLDivElement>('#app')
+            if(!element){
+                const body = document.querySelector('body')
+                const app = document.createElement('div')
+                app.setAttribute('id','app')
+                body?.appendChild(app)
+            }
             Lib.renderApp()
         }
     }
