@@ -206,5 +206,9 @@ console.log(_.state.user)
 |setState()|key:  string,  value:  any | used to update state|
 |new useState()|initialState?:  {[key:  string]:  any},logger?:  string| 'logger' is a string name to log state object to console|
 ## Known issues
- - When **any** state is updated, the **entire UI of current route** is re-rendered. This is bit      performance heavy.
+ - When **any** state is updated, the **entire UI of current route** is re-rendered. This is bit performance heavy.
  - Each time the dom is re-rendered , we need to add all the registered event listeners again :( 
+## ToDos
+ - Child routing
+ - link() component development
+ - handling changes/effects 
