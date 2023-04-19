@@ -212,4 +212,5 @@ console.log(_.state.user)
  - Child routing, redirection and handling not found routes
  - link() component development
  - handling changes/effects
- - change State to function
+ - Solve event handling issues
+
