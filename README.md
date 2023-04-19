@@ -177,13 +177,13 @@ export  const  cart  =  ()  =>  {
 }
   ```
 ## State
-The state of the application or component can be managed using the `useState` class. We can create object of `useState` class providing some initial state of the application. On the state object we get `state` variable to access the state and a setter function called `setState` , which expects the `key` and `value` parameters of state variable that needs to be updated.
+The state of the application or component can be managed using the `State` class. We can create object of `State` class providing some initial state of the application. On the state object we get `state` variable to access the state and a setter function called `setState` , which expects the `key` and `value` parameters of state variable that needs to be updated.
 On the `setState` call , the state is updated and the **The entire current route UI is re-rendered!**
 `setState` calls are expected mostly in event handlers. Avoid setting state in **component functions** as it may cause **infinite render loop!** 
 ```javascript
-import {useState} from 'stateful-dom';
+import {State} from 'stateful-dom';
 
-export const _ = new useState({user: "" }) // this state can be imported into any file of app
+export const _ = new State({user: "" }) // this state can be imported into any file of app
 console.log(_.state.user)
 ```
 ## API
@@ -204,11 +204,12 @@ console.log(_.state.user)
 |------|--|--|
 |state| Not a method| used to access the state
 |setState()|key:  string,  value:  any | used to update state|
-|new useState()|initialState?:  {[key:  string]:  any},logger?:  string| 'logger' is a string name to log state object to console|
+|new State()|initialState?:  {[key:  string]:  any},logger?:  string| 'logger' is a string name to log state object to console|
 ## Known issues
  - When **any** state is updated, the **entire UI of current route** is re-rendered. This is bit performance heavy.
  - Each time the dom is re-rendered , we need to add all the registered event listeners again :( 
 ## ToDos
  - Child routing, redirection and handling not found routes
  - link() component development
- - handling changes/effects 
+ - handling changes/effects
+ - change State to function

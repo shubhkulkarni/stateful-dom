@@ -12,3 +12,5 @@ export interface IRoute{
 export interface ILinkProps extends IComponentProps{
     href: string
 }
+
+export type UseStateTupleType = [ {[key: string]: any},(key: string, value: any) => void]

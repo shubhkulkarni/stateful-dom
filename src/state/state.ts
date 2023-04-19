@@ -1,7 +1,8 @@
 import Lib from "../core/library";
+import { UseStateTupleType } from "../types/types";
 
 
-class useState {
+class State {
     private store
     private logger: string | undefined
     constructor(initial?: {[key: string]: any},logger?: string) {
@@ -13,6 +14,10 @@ class useState {
         return this.store
     }
 
+    set state(_value: any){
+        throw new Error("State mutation is not allowed. use 'setState' function to update the state");
+    }
+    
     setState(key: string, value: any) {
 
         let toRender = false;
@@ -32,5 +37,12 @@ class useState {
     }
 
 }
+//todo : needs mutation of store for 'state' to work properly
+export const useState = (initial?: {[key: string]: any},logger?: string) => {
+    const _ = new State(initial,logger);
+    const state = _.state;
+    const setState = _.setState.bind(_);
+    return [state,setState] as UseStateTupleType;
+}
 
-export default useState
+export default State
