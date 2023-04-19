@@ -1,7 +1,7 @@
 {
   "name": "stateful-dom",
-  "version": "1.0.5",
-  "description": "A stateful reactive library for vanilla js/ts applications using component patterns",
+  "version": "1.0.6",
+  "description": "A stateful & reactive dom library for building vanilla js/ts applications using component patterns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/shubhkulkarni/stateful-dom.git"
   },
   "keywords": [
-    "stateful"
+    "stateful","dom","ui","frontend","useState","hooks","reactive","state management"
   ],
   "author": "Shubham Kulkarni",
   "license": "ISC",
