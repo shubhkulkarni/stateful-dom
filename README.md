@@ -49,8 +49,8 @@ const app = [
 	{path:"/",root: page1},
 	//page 2 will be redirected to page3 , for this use 'redirectTo' option like below
 	{path:"/page2",root: page2, redirectTo: "/page3"},
-  	{path:"/page3",root: page3},
-  	{path:"*",root:notFound} // for handling routes that don't exist, add path as "*"
+	{path:"/page3",root: page3},
+	{path:"*",root: notFound} // for handling routes that don't exist, add path as "*"
 ]
 
 router.render(app);
