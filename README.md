@@ -209,6 +209,6 @@ console.log(_.state.user)
  - When **any** state is updated, the **entire UI of current route** is re-rendered. This is bit performance heavy.
  - Each time the dom is re-rendered , we need to add all the registered event listeners again :( 
 ## ToDos
- - Child routing
+ - Child routing, redirection and handling not found routes
  - link() component development
  - handling changes/effects 
