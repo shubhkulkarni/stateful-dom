@@ -35,9 +35,22 @@ const page2 = () => {
 	return Lib.createComponent(template);
 }
 
+const page3 = () => {
+  const template = `<div> Page3 is working </div>`;
+  return Lib.createComponent(template);
+}
+
+const notFound = () => {
+  const template = `<div> 404 ! route not found </div>`;
+  return Lib.createComponent(template);
+}
+
 const app = [
 	{path:"/",root: page1},
-	{path:"/page2",root: page2}
+	//page 2 will be redirected to page3 , for this use 'redirectTo' option like below
+	{path:"/page2",root: page2, redirectTo: "/page3"},
+  	{path:"/page3",root: page3},
+  	{path:"*",root:notFound} // for handling routes that don't exist, add path as "*"
 ]
 
 router.render(app);
@@ -209,7 +222,7 @@ console.log(_.state.user)
  - When **any** state is updated, the **entire UI of current route** is re-rendered. This is bit performance heavy.
  - Each time the dom is re-rendered , we need to add all the registered event listeners again :( 
 ## ToDos
- - Child routing, redirection and handling not found routes
+ - Child routing
  - link() component development
  - handling changes/effects
  - Solve event handling issues

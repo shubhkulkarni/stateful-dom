@@ -39,7 +39,17 @@ class Router {
 
     resolveCurrentRoute() {
         const currentPath = window.location.pathname
-        const currentRoute = this.routing.find(i => i.path === currentPath)
+        const allPaths = this.routing.map(i => i.path)
+        let currentRoute: IRoute | undefined;
+        if(!allPaths.includes(currentPath)){
+            currentRoute = this.routing.find(i => i.path === "*")
+        }else{
+            currentRoute = this.routing.find(i => i.path === currentPath)
+            if(currentRoute?.redirectTo){
+                currentRoute = this.routing.find(i => i.path === currentRoute?.redirectTo)
+            }
+        }
+        
         this.currentAppRoot = currentRoute?.root || null
     }
 

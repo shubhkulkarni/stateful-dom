@@ -6,7 +6,8 @@ export type TComponentFunction = (...args: any[]) => Element | null
 
 export interface IRoute{
     path: string;
-    root: TComponentFunction
+    root: TComponentFunction;
+    redirectTo?:string
 }
 
 export interface ILinkProps extends IComponentProps{
