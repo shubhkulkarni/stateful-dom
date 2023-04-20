@@ -46,7 +46,8 @@ class Router {
         }else{
             currentRoute = this.routing.find(i => i.path === currentPath)
             if(currentRoute?.redirectTo){
-                currentRoute = this.routing.find(i => i.path === currentRoute?.redirectTo)
+                history.pushState({},"",currentRoute?.redirectTo as string);
+                currentRoute = this.routing.find(i => i.path === currentRoute?.redirectTo);
             }
         }
         

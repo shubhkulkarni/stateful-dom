@@ -1,13 +1,14 @@
 {
   "name": "stateful-dom",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A stateful & reactive dom library for building vanilla js/ts applications using component patterns",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "devlink": "npm run lint && npm run build && npm link",
     "build": "tsup src/index.ts --format cjs,esm --dts",
+    "deploy":"npm run lint && npm run build && npm publish",
     "lint": "tsc"
   },
   "repository": {
