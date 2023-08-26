@@ -6,11 +6,7 @@ class Lib {
 
     static clubComponents(components: (Element | null)[],attributes?: IComponentProps,parent?: string){
         const root = document.createElement(parent || 'div')
-        if(attributes){
-            Object.entries(attributes).forEach(i => {
-                root.setAttribute(i[0],i[1])
-            })
-        }
+        this.setAttributes(root,attributes);
         components.forEach(c => {
             if(c) root.appendChild(c)
         })
@@ -47,14 +43,16 @@ class Lib {
         });
     }
 
-    static createComponent(template: string,name?:string){
+    static createComponent(template: string,name?:string,attributes?: IComponentProps){
         const element = document.createElement(name || 'div');
+        this.setAttributes(element,attributes);
         element.innerHTML = template;
         return element;
     }
 
-    static createListNode (list: (Element | null)[],parent: string = 'div'){
+    static createListNode (list: (Element | null)[],attributes?:IComponentProps,parent: string = 'div'){
         const element = document.createElement(parent || 'div')
+        this.setAttributes(element,attributes);
         list.forEach(i => {
             if(i) element.appendChild(i)
         })
@@ -77,6 +75,14 @@ class Lib {
     static getFormItem (selector: string){
         return document.querySelector(selector) as HTMLFormElement
     } 
+
+    static setAttributes (root: HTMLElement, attributes?:IComponentProps){
+        if(attributes){
+            Object.entries(attributes).forEach(i => {
+                root.setAttribute(i[0],i[1])
+            })
+        }
+    }
     
 }
 
