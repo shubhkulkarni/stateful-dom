@@ -32,6 +32,12 @@ class Lib {
         this.registerEventListeners()
     }
 
+    static runPreLoads (){
+        const promises: (Promise<void> | void)[] = []
+        events.getPreLoads().forEach(e => promises.push(e()))
+        Promise.allSettled(promises);
+    }
+
     static registerEventListeners(){
         events.getRegistry().forEach(e => {
             (document.querySelectorAll(e.selector) || []).forEach(i => {

@@ -24,6 +24,7 @@ class Router {
                 body?.appendChild(app)
             }
             Lib.renderApp()
+            Lib.runPreLoads();
         }
     }
 

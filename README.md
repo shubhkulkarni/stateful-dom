@@ -101,6 +101,20 @@ export const myButton = (label) => {
 	return Lib.createComponent(template);
 }
   ```
+#### Handle preloading (page-loading events that occur at initial loading of page)
+ ```javascript
+import {Lib,events} from 'stateful-dom';
+//best for preloading async data by calling apis
+//make sure you DON'T add events inside component function (myButton()) 
+events.preload(() => { 
+	console.log("This will be preloaded");
+});
+
+export const myButton = (label) => {
+	const template = `<button id='my-btn'> ${label} </button>`;
+	return Lib.createComponent(template);
+}
+  ```
 #### Add DOM attributes to a component 
  ```javascript
 import {Lib,events} from 'stateful-dom';
