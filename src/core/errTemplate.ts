@@ -60,9 +60,9 @@ export const err = (name: string,msg:string,stack:string) => {
             <div class="errHeader">
                 Stateful-Dom ${name ?? 'Error'}!
             </div>
-            <pre class="errBody">
+            <code class="errBody">
                 ${msg}
-            </pre>
+            </code>
             <div class="errBodyStack">
                 <div class="errType">
                     Stack trace
