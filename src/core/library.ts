@@ -1,6 +1,7 @@
 import events from "../events/events"
 import  { IComponentProps } from "../types/types"
 import router from "../routing/routing"
+import { err } from "./errTemplate";
 
 class Lib {
 
@@ -19,17 +20,22 @@ class Lib {
     }
 
     static renderApp() {
-       
-        if(!router.currentRoot){
-            router.resolveCurrentRoute();
+        try{
+            if(!router.currentRoot){
+                router.resolveCurrentRoute();
+            }
+    
+            let appRoot = router.currentRoot;
+            if(!appRoot) return 
+            const root = Lib.clubComponents([appRoot()])
+            const element = document.querySelector<HTMLDivElement>('#app')
+            element!.innerHTML = root.innerHTML
+            this.registerEventListeners()
+        }catch(e){
+            const {name,stack,message} = e as Error;
+            document.write(err(name,message,stack ?? 'No stack trace found :('))
         }
-
-        let appRoot = router.currentRoot;
-        if(!appRoot) return 
-        const root = Lib.clubComponents([appRoot()])
-        const element = document.querySelector<HTMLDivElement>('#app')
-        element!.innerHTML = root.innerHTML
-        this.registerEventListeners()
+        
     }
 
     static runPreLoads (){

@@ -13,19 +13,25 @@ class Router {
     }
 
     render(routes: IRoute[] | TComponentFunction) {
-        if (!this.routing.length) {
-            if (!(routes instanceof Array)) routes = [{ path: "/", root: routes }]
-            this.routing = routes
-            const element = document.querySelector<HTMLDivElement>('#app')
-            if(!element){
-                const body = document.querySelector('body')
-                const app = document.createElement('div')
-                app.setAttribute('id','app')
-                body?.appendChild(app)
+        try{
+            if (!this.routing.length) {
+                if (!(routes instanceof Array)) routes = [{ path: "/", root: routes }]
+                this.routing = routes
+                const element = document.querySelector<HTMLDivElement>('#app')
+                if(!element){
+                    const body = document.querySelector('body')
+                    const app = document.createElement('div')
+                    app.setAttribute('id','app')
+                    body?.appendChild(app)
+                }
+                Lib.renderApp()
+                Lib.runPreLoads();
             }
-            Lib.renderApp()
-            Lib.runPreLoads();
+        }catch(e){
+            console.log('from render')
+            document.write(e as string)
         }
+        
     }
 
     get currentRoot() {
