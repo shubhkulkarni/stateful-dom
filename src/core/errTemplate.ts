@@ -51,6 +51,10 @@ export const err = (name: string,msg:string,stack:string) => {
         .errContent, .errBody{
             font-size: 14px;
         }
+
+        .errBody{
+            padding: 20px 0;
+        }
     </style>
 </head>
 <body>
